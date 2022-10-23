@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "./rlp",
+    "./rlp-derive",
+]
+
