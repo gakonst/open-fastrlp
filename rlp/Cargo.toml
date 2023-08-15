@@ -1,6 +1,6 @@
 [package]
 name = "open-fastrlp"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 license = "Apache-2.0"
 description = "Fast RLP serialization library. This crate is a yanked version of FastRLP 0.1.2 which was Apache licensed"
@@ -11,7 +11,7 @@ arrayvec = { version = "0.7", default-features = false }
 auto_impl = "1"
 bytes = { version = "1", default-features = false }
 ethnum = { version = "1", default-features = false, optional = true }
-ethereum-types = { version = "0.14", features = ["codec"], optional = true }
+ethereum-types = { version = "0.14", default-features = false, features = ["ethbloom", "rlp", "serialize", "codec"], optional = true }
 rlp-derive = { package = "open-fastrlp-derive", version = "0.1", path = "../rlp-derive", optional = true }
 
 [dev-dependencies]
@@ -27,7 +27,7 @@ hex-literal = "0.3"
 [features]
 alloc = []
 derive = ["rlp-derive"]
-std = ["alloc"]
+std = ["alloc", "ethereum-types?/std"]
 
 [[bench]]
 name = "bench"
